@@ -1,86 +1,114 @@
 #!/bin/bash
 
-# Warna
-hijau='\033[1;32m'
-normal='\033[0m'
+green="\033[0;32m"
+blue="\033[1;34m"
+cyan="\033[1;36m"
+red="\033[1;31m"
+nc="\033[0m"
 
-# Fungsi animasi GUSOFC
-animate_gusofc() {
-  clear
-  for i in {1..10}; do
-    echo -e "${hijau}"
-    echo "╭━━┳━━┳╮╭┳━━╮"
-    echo "┃╭╮┃╭━┫┃┃┃━━┫"
-    echo "┃┣┫┃╰╮┃╰╯┣━━┃"
-    echo "╰╯╰┻━━┻━━╯"
-    echo "╭━━┳━━┳━┳┳━━┳━┳━┳┳━━╮"
-    echo "┃╭━┫╭╮┃┃┃┣╮╭┫┳┫┃┃┃╭━┫"
-    echo "┃╰╮┃┣┫┃┃┃┃┃┃┃┻┫┃┃┃╰╮┃"
-    echo "╰━━┻╯╰┻┻━╯╰╯╰━┻┻━┻━━╯┻━━╯"
-    echo -e "${normal}"
-    sleep 0.5
-    clear
-    sleep 0.2
-  done
+bot_info() {
+  echo -e "${blue}Nama owner : GUSxOFC"
+  echo -e "Version    : 6.0"
+  echo -e "Status     : hargai L${nc}"
 }
 
-# Menu Utama
-menu_utama() {
+gusofc_anim() {
   clear
-  echo -e "${hijau}===== GUSxOFC - VERSION 6.0 =====${normal}"
-  echo "Nama Owner : GUSxOFC"
-  echo "Status     : hargai L"
-  echo "-----------------------------------"
+  for i in {1..200}; do
+    tput setaf 2
+    tput cup $((RANDOM % 20)) $((RANDOM % 60))
+    echo "╭━━┳━━┳╮╭┳━━╮"
+    tput cup $((RANDOM % 20)) $((RANDOM % 60))
+    echo "┃╭╮┃╭━┫┃┃┃━━┫"
+    tput cup $((RANDOM % 20)) $((RANDOM % 60))
+    echo "┃┣┫┃╰╮┃╰╯┣━━┃"
+    tput cup $((RANDOM % 20)) $((RANDOM % 60))
+    echo "╰╯╰┻━━┻━━╯"
+    tput cup $((RANDOM % 20)) $((RANDOM % 60))
+    echo "╭━━┳━━┳━┳┳━━┳━┳━┳┳━━╮"
+    tput cup $((RANDOM % 20)) $((RANDOM % 60))
+    echo "┃╭━┫╭╮┃┃┃┣╮╭┫┳┫┃┃┃╭━┫"
+    tput cup $((RANDOM % 20)) $((RANDOM % 60))
+    echo "┃╰╮┃┣┫┃┃┃┃┃┃┃┻┫┃┃┃╰╮┃"
+    tput cup $((RANDOM % 20)) $((RANDOM % 60))
+    echo "╰━━┻╯╰┻┻━╯╰╯╰━┻┻━┻━━╯┻━━╯"
+    sleep 0.03
+  done
+  clear
+}
+
+menu() {
+  clear
+  echo -e "${green}╔════════════════════════════════════╗"
+  echo -e "║           ${blue}SELAMAT DATANG DI${green}           ║"
+  echo -e "║          ${blue}SCRIPT TERMUX AGUS.SH${green}          ║"
+  echo -e "╚════════════════════════════════════╝${nc}"
+  echo ""
+  bot_info
+  echo ""
+  echo -e "${cyan}===================== MENU =====================${nc}"
   echo "1. Track IP"
   echo "2. Info ID TikTok"
-  echo "3. Cek IP Publik HP (Nomor WhatsApp)"
+  echo "3. Cek IP Public HP (Masukan Nomor WhatsApp)"
   echo "4. Cek Khodam"
   echo "5. Info Kartu / Nomor"
   echo "6. Fake Hacker (cmatrix)"
-  echo "7. GUSOFC"
+  echo "7. GusOfc (Animasi Keren)"
   echo "0. Keluar"
-  echo "-----------------------------------"
-  read -p "Pilih menu: " pilih
+  echo -e "${cyan}================================================${nc}"
+  echo -n "Pilih fitur: "
+}
 
+while true; do
+  menu
+  read pilih
   case $pilih in
     1)
-      read -p "Masukkan IP target: " ip
-      curl -s https://ipinfo.io/$ip/json | jq
+      read -p "Masukkan IP untuk dilacak: " ip
+      echo -e "${green}Mencari info IP $ip...${nc}"
+      curl -s http://ip-api.com/json/$ip | jq
+      read -p "Tekan Enter untuk kembali..."
       ;;
     2)
-      read -p "Masukkan username TikTok: " user
-      curl -s "https://www.tikwm.com/api/user/info?unique_id=$user" | jq
+      read -p "Masukkan ID TikTok username: " tiktokid
+      echo -e "${green}Mengambil info TikTok ID $tiktokid...${nc}"
+      curl -s "https://www.tikwm.com/api/user/info?uniqueId=$tiktokid" | jq
+      read -p "Tekan Enter untuk kembali..."
       ;;
     3)
-      read -p "Masukkan nomor WhatsApp (628xxxx): " no
-      curl -s "https://ipapi.co/json" | jq
+      read -p "Masukkan nomor WhatsApp (format internasional, contoh 6281234567890): " wa
+      echo -e "${green}Mengecek IP public HP dari nomor WhatsApp $wa...${nc}"
+      curl -s "https://ipinfo.io/json" | jq
+      read -p "Tekan Enter untuk kembali..."
       ;;
     4)
-      echo "Sedang cek khodam..."
+      echo -e "${green}Mengecek khodam...${nc}"
       sleep 2
-      echo "Khodam kamu adalah: [RANDOM]"
+      echo -e "${cyan}Khodam terdeteksi: Macan Putih Penjaga Ruhani${nc}"
+      read -p "Tekan Enter untuk kembali..."
       ;;
     5)
-      read -p "Masukkan nomor HP (628xxxx): " nomor
-      curl -s https://api.zeks.me/api/cek-nomor?apikey=YOURAPIKEY&nohp=$nomor | jq
+      read -p "Masukkan nomor telepon (contoh 6281234567890): " no
+      echo -e "${green}Mencari info kartu/nomor $no...${nc}"
+      curl -s "https://htmlweb.ru/geo/api.php?json&telcod=$no" | jq
+      read -p "Tekan Enter untuk kembali..."
       ;;
     6)
+      echo -e "${green}Menjalankan fake hacker... Tekan CTRL+C untuk keluar.${nc}"
       cmatrix
+      read -p "Tekan Enter untuk kembali..."
       ;;
     7)
-      animate_gusofc
+      gusofc_anim
+      read -p "Tekan Enter untuk kembali..."
       ;;
     0)
-      echo "Keluar..."
+      echo -e "${green}Terima kasih sudah menggunakan Agus.sh!${nc}"
       exit
       ;;
     *)
-      echo "Pilihan tidak valid"
+      echo -e "${red}Pilihan tidak valid!${nc}"
+      sleep 1
       ;;
   esac
-  read -p "Tekan enter untuk kembali ke menu..."
-  menu_utama
-}
-
-# Jalankan
-menu_utama
+done
