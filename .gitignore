@@ -1,0 +1,16 @@
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore environment files (jika ada)
+.env
+
+# Ignore compiled files (jika ada)
+*.out
+*.exe
+
+# Ignore cache folders (jika ada)
+.cache/
