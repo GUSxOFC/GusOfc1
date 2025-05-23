@@ -1,26 +1,19 @@
-# Agus-Termux-Tools
+# GusOfc - Version 6.0
 
-Script Termux lengkap dengan berbagai fitur seperti track IP, info TikTok, cek IP public HP lewat nomor WhatsApp, cek khodam, info kartu/nomor telepon, hingga fake hacker dengan tampilan cmatrix.  
-Dilengkapi juga dengan animasi keren bertema GusOfc yang bergerak warna hijau.
-
----
+## Deskripsi
+GusOfc adalah script Termux dengan fitur-fitur keren seperti track IP, info ID TikTok, cek khodam, info kartu/nomor, fake hacker dengan cmatrix, dan fitur khusus GusOfc dengan animasi teks bergerak warna hijau.
 
 ## Fitur
+- Track IP  
+- Info ID TikTok  
+- Cek IP public HP (masukan nomor WhatsApp)  
+- Cek khodam  
+- Info kartu - nomor  
+- Fake hacker (cmatrix)  
+- Animasi teks GusOfc bergerak warna hijau (200 kali)
 
-- Track IP dengan hasil detail menggunakan API publik  
-- Ambil info profil TikTok berdasarkan username  
-- Cek IP publik HP dari nomor WhatsApp (menggunakan API publik sederhana)  
-- Cek khodam (fitur hiburan)  
-- Info kartu/nomor telepon via API geo lokal  
-- Fake hacker dengan tampilan `cmatrix`  
-- Animasi teks bergerak GusOfc keren dan eye-catching  
-
----
-
-## Cara Install
-
-1. Clone repo ini  
-   ```bash
-   git clone https://github.com/username/Agus-Termux-Tools.git
-   cd Agus-Termux-Tools
-   
+## Prasyarat
+Pastikan sudah menginstall beberapa paket berikut di Termux:
+```bash
+pkg update && pkg upgrade
+pkg install bash curl jq cmatrix
