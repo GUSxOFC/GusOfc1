@@ -49,7 +49,7 @@ menu() {
   echo -e "${cyan}===================== MENU =====================${nc}"
   echo "1. Track IP"
   echo "2. Info ID TikTok"
-  echo "3. Cek IP Public HP (Masukan Nomor WhatsApp)"
+  echo "3. Cek IP Publik Kamu (bukan dari nomor WA)"
   echo "4. Cek Khodam"
   echo "5. Info Kartu / Nomor"
   echo "6. Fake Hacker (cmatrix)"
@@ -76,9 +76,8 @@ while true; do
       read -p "Tekan Enter untuk kembali..."
       ;;
     3)
-      read -p "Masukkan nomor WhatsApp (format internasional, contoh 6281234567890): " wa
-      echo -e "${green}Mengecek IP public HP dari nomor WhatsApp $wa...${nc}"
-      curl -s "https://ipinfo.io/json" | jq
+      echo -e "${green}Menampilkan IP publik dari perangkat kamu...${nc}"
+      curl -s https://ipinfo.io/json | jq
       read -p "Tekan Enter untuk kembali..."
       ;;
     4)
